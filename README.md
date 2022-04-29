@@ -1,6 +1,7 @@
 # team-profile-generator
 
 AS A manager
+
 I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
 
@@ -34,10 +35,6 @@ THEN I exit the application, and the HTML is generated
 
 
 Things to do:
-
-Make a prompt to ask for team member's information using the command-line application
-
-Be able to return to menu option to add engineer/intern
 
 Once we gather all data, an HTML should render
 

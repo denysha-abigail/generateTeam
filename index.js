@@ -1,7 +1,9 @@
 const { prompt } = require('inquirer');
+const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const generateTeam = require('./src/page-template');
 const roles = { Manager: [], Engineer: [], Intern: [] };
 
 init();
@@ -31,7 +33,6 @@ function fillRole() {
         }
     ])
         .then(({ role }) => {
-
             prompt([
                 {
                     type: 'input',
@@ -50,7 +51,7 @@ function fillRole() {
                 },
                 {
                     type: 'input',
-                    name: 'office',
+                    name: 'officeNumber',
                     message: 'What is the manager\'s office number?',
                     when: role == 'Manager'
                 },
@@ -76,8 +77,34 @@ function fillRole() {
                 })
                 .then(init)
         })
+        
 };
 
 function createHTML() {
     
+    const generateManager = (Manager) => {
+        return `<div class="card">
+        <div class="card-header">
+            <h2 class="card-title">${Manager.getName()}</h2>
+            <h3 class="card-title"><i class="fa-solid fa-mug-hot"></i>${Manager.getRole()}</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: ${Manager.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${Manager.getEmail()}"></a></li>
+                <li class="list-group-item">Office Number: ${Manager.getOfficeNumber()}</li>
+            </ul>
+        </div>
+        </div>`
+        };
+        
+    const { Manager, Engineer, Intern } = roles
+    fs.writeFile('./dist/team.html', generateManager(JSON.stringify(Manager)), (error) => {
+        if (error) {
+            console.log(error);
+            return;
+        } else {
+            console.log('Success! The HTML file for your team has been created!');
+        }
+    });
 }
