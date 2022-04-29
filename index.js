@@ -13,7 +13,7 @@ function init() {
         {
             type: 'confirm',
             name: 'isRole',
-            message: 'Would you like to fill a position?'
+            message: 'Would you like to fill a position?',
         }
     ])
         .then(({ isRole }) => {
@@ -37,34 +37,82 @@ function fillRole() {
                 {
                     type: 'input',
                     name: 'name',
-                    message: 'What is the employee\'s name?'
+                    message: 'What is the employee\'s name?',
+                    validate: nameInput => {
+                        if (nameInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter the employee\'s name.');
+                            return false;
+                        }
+                    }
                 },
                 {
                     type: 'input',
                     name: 'id',
-                    message: 'What is the employee\'s id?'
+                    message: 'What is the employee\'s id?',
+                    validate: idInput => {
+                        if (idInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter the employee\'s id.');
+                            return false;
+                        }
+                    }
                 },
                 {
                     type: 'input',
                     name: 'email',
-                    message: 'What is the employee\'s e-mail?'
+                    message: 'What is the employee\'s e-mail?',
+                    validate: emailInput => {
+                        if (emailInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter the employee\'s e-mail.');
+                            return false;
+                        }
+                    }
                 },
                 {
                     type: 'input',
                     name: 'officeNumber',
                     message: 'What is the manager\'s office number?',
+                    validate: officeInput => {
+                        if (officeInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter the manager\'s office number.');
+                            return false;
+                        }
+                    },
                     when: role == 'Manager'
                 },
                 {
                     type: 'input',
                     name: 'github',
                     message: 'What is the engineer\'s github profile?',
+                    validate: githubInput => {
+                        if (githubInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter the engineer\'s github profile.');
+                            return false;
+                        }
+                    },
                     when: role == 'Engineer'
                 },
                 {
                     type: 'input',
                     name: 'school',
                     message: 'What is the intern\'s school name?',
+                    validate: schoolInput => {
+                        if (schoolInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter the intern\'s school name.');
+                            return false;
+                        }
+                    },
                     when: role == 'Intern'
                 }
             ])
@@ -82,24 +130,7 @@ function fillRole() {
 
 function createHTML() {
     
-    const generateManager = (Manager) => {
-        return `<div class="card">
-        <div class="card-header">
-            <h2 class="card-title">${Manager.getName()}</h2>
-            <h3 class="card-title"><i class="fa-solid fa-mug-hot"></i>${Manager.getRole()}</h3>
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID: ${Manager.getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${Manager.getEmail()}"></a></li>
-                <li class="list-group-item">Office Number: ${Manager.getOfficeNumber()}</li>
-            </ul>
-        </div>
-        </div>`
-        };
-        
-    const { Manager, Engineer, Intern } = roles
-    fs.writeFile('./dist/team.html', generateManager(JSON.stringify(Manager)), (error) => {
+    fs.writeFile('./dist/team.html', generateTeam, (error) => {
         if (error) {
             console.log(error);
             return;
