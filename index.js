@@ -4,7 +4,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateTeam = require('./src/page-template');
-const roles = { Manager: [], Engineer: [], Intern: [] };
+const roles = { manager: [], engineer: [], intern: [] };
+const teamArr = [];
 
 init();
 
@@ -117,25 +118,37 @@ function fillRole() {
                 }
             ])
                 .then(ans => {
-                    role == 'Manager'
-                        ? roles.Manager.push(new Manager(...Object.values(ans)))
-                        : role == 'Engineer'
-                            ? roles.Engineer.push(new Engineer(...Object.values(ans)))
-                            : roles.Intern.push(new Intern(...Object.values(ans)));
-                })
+                    if (role == "Manager"){
+                        const manager = new Manager(ans.name, ans.id, ans.email, ans.officeNumber)
+                        teamArr.push(manager);
+                      } else if (role == "Engineer"){
+                        const engineer = new Engineer(ans.name, ans.id, ans.email, ans.github)
+                        teamArr.push(engineer);
+                      } else {
+                        const intern = new Intern(ans.name, ans.id, ans.email, ans.school)
+                        teamArr.push(intern);
+                      }
+                    })
                 .then(init)
         })
         
 };
 
 function createHTML() {
-    
-    fs.writeFile('./dist/team.html', generateTeam, (error) => {
+    fs.writeFile('./dist/team.html', generateTeam(teamArr), (error) => {
         if (error) {
             console.log(error);
             return;
         } else {
             console.log('Success! The HTML file for your team has been created!');
+        }
+    });
+    fs.copyFile('./src/team.css', './dist/team.css', (error) => {
+        if (error) {
+            console.log(error);
+            return;
+        } else {
+            console.log('The CSS file for your HTML has been successfully created!');
         }
     });
 }
