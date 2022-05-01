@@ -1,13 +1,105 @@
-.card{
-    width: 40vw;
-    min-width: 30vw;
-    margin: 15px;
-  }
-  
-  .card-title{
-    text-align: center;
-  }
-  
-  .jumbotron{
-    text-align: center;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap');
+
+:root {
+  --ong: rgb(202,106,34);
+  --gld: rgb(251,188,46);
+  --sea-grn-blue: rgb(131,165,152);
+  --sea-foam-grn: rgb(141,193,124);
+  --yel-grn: rgb(185,187,37);
+  --bge: rgb(232,218,177);
+  --red: rgb(231,69,51);
+}
+
+* {
+  font-family: 'Jura', sans-serif;
+}
+
+html, body {
+  background-color: rgb(40,40,40);
+}
+
+a {
+  color: var(--yel-grn);
+}
+
+a:hover {
+  color: var(--red);
+}
+
+.jumbotron {
+  background-color: rgba(40, 40, 40, .75);
+  border: 1px solid var(--ong);
+  text-align: center;
+}
+
+.manager-card {
+  border-color: var(--gld);
+}
+
+.manager-header {
+  background-color: rgba(40, 40, 40);
+  border-bottom: 1px solid var(--gld);
+}
+
+.manager-title {
+  color: var(--gld);
+}
+
+.manager-list {
+  border: 1px solid var(--gld);
+  color: var(--gld);
+}
+
+.engineer-card {
+  border-color: var(--sea-grn-blue);
+}
+
+.engineer-header {
+  background-color: rgba(40, 40, 40);
+  border-bottom: 1px solid var(--sea-grn-blue);
+}
+
+.engineer-title {
+  color: var(--sea-grn-blue);
+}
+
+.engineer-list {
+  border: 1px solid var(--sea-grn-blue);
+  color: var(--sea-grn-blue);
+}
+
+.intern-card {
+  border-color: var(--sea-foam-grn);
+}
+
+.intern-header {
+  background-color: rgba(40, 40, 40);
+  border-bottom: 1px solid var(--sea-foam-grn);
+}
+
+.intern-title {
+  color: var(--sea-foam-grn);
+}
+
+.intern-list {
+  border: 1px solid var(--sea-foam-grn);
+  color: var(--sea-foam-grn);
+}
+
+.card-body {
+  background-color: rgba(40, 40, 40);
+}
+
+.list-group-item {
+  background-color: rgba(40, 40, 40, .25);
+}
+
+h1 {
+  color: var(--red);
+}
+
+.card {
+  width: 40vw;
+  min-width: 30vw;
+  margin: 15px;
+}
