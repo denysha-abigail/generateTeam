@@ -22,6 +22,8 @@ This back-end command-line server-side interface application utilizes JavaScript
 ## Usage:
 - Once all packages have been installed, run the command ```npm run start``` or ```node index.js``` on your terminal and answer the displayed prompts as they appear on your command-line interface. Upon completion, a message will appear below the last prompt indicating that the application successfully created the HTML and CSS file! In order to access the files, make sure you navigate to and open the dist folder. The HTML file is now ready to be viewed on your browser!
 
+https://user-images.githubusercontent.com/96617237/166179085-695290b5-be3e-47c7-8d61-6b03e18c3506.mp4
+
 ## Preview:
 ![Screenshot](./images/sample-team-preview.png)
 
@@ -42,7 +44,3 @@ This back-end command-line server-side interface application utilizes JavaScript
 
 ## Credits:
 - *[Denysha Guerrios-Armaiz](https://github.com/denysha-abigail), 05/2022*
-
-
-
-
