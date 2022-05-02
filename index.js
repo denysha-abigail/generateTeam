@@ -4,7 +4,6 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateTeam = require('./src/page-template');
-const roles = { manager: [], engineer: [], intern: [] };
 const teamArr = [];
 
 init();
