@@ -1,4 +1,4 @@
-# Team Profile Generator
+# generateTeam(team);
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -23,7 +23,7 @@ This back-end command-line server-side interface application utilizes JavaScript
 - Once all packages have been installed, run the command ```npm run start``` or ```node index.js``` on your terminal and answer the displayed prompts as they appear on your command-line interface. Upon completion, a message will appear below the last prompt indicating that the application successfully created the HTML and CSS file! In order to access the files, make sure you navigate to and open the dist folder. The HTML file is now ready to be viewed on your browser!
 
 ## Preview:
-![Screenshot]()
+![Screenshot](./images/sample-team-preview.png)
 
 ## Test:
 - All test suites and tests should pass when you run the following command on your terminal:
@@ -41,7 +41,7 @@ This back-end command-line server-side interface application utilizes JavaScript
 - Please feel free to use this application at any time and visit my personal [GitHub](https://github.com/denysha-abigail) profile to access other open source projects! 
 
 ## Credits:
-- *[Denysha Guerrios-Armaiz](https://github.com/denysha-abigail), 04/2022*
+- *[Denysha Guerrios-Armaiz](https://github.com/denysha-abigail), 05/2022*
 
 
 
